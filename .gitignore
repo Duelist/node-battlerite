@@ -61,4 +61,4 @@ typings/
 dist/
 
 # Tern
-.tern-port
+**/.tern-port
