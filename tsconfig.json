@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "paths": {
+      "node-battlerite/*": [
+        "./src/*"
+      ]
+    },
+    "target": "es2017"
+  },
+  "include": [
+      "./src/**/*"
+  ]
+}

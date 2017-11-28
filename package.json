@@ -1,0 +1,48 @@
+{
+  "name": "node-battlerite",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "repository": "https://github.com/duelist/node-battlerite",
+  "author": "Ian Benedict <ianbenedict@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn clean-build-dir && yarn create-links && ./node_modules/typescript/bin/tsc",
+    "build-watch": "yarn clean-build-dir && yarn create-links && ./node_modules/typescript/bin/tsc -w",
+    "clean-build-dir": "rm -rf dist",
+    "create-links": "mkdir -p dist/node_modules && ln -s .. dist/node_modules/node-battlerite",
+    "lint": "eslint src",
+    "prepublish": "yarn build",
+    "start": "env NODE_ENV=production node dist/bot/index.js",
+    "start-local": "env DEBUG=* node dist/bot/index.js",
+    "test": "./node_modules/jest/bin/jest.js"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testMatch": [
+      "<rootDir>/dist/tests/**/*.(ts|tsx|js)"
+    ]
+  },
+  "dependencies": {
+    "chance": "^1.0.12",
+    "got": "^8.0.0",
+    "lodash": "^4.17.4",
+    "should": "^13.1.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^21.1.8",
+    "@types/node": "^8.0.53",
+    "eslint": "^4.12.0",
+    "jest": "^21.2.1",
+    "sinon": "^4.1.2",
+    "ts-jest": "^21.2.3",
+    "typescript": "^2.6.2",
+    "typescript-eslint-parser": "^9.0.0"
+  }
+}
