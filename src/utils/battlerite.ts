@@ -13,10 +13,8 @@ async function getMatch(apiToken: string, id: string, {} = {}) {
   return await got.get(
     BATTLERITE.API_PATHS.MATCHES + `/${id}`,
     {
-      headers: {
-        Authorization: ['Bearer', apiToken].join(' '),
-      },
-      json: true,
+      headers : { Authorization: apiToken },
+      json    : true,
     }
   )
 
@@ -49,9 +47,19 @@ async function getMatches(apiToken: string, {
   teamNames?     : string[],
 } = {}) {
 
+  let createdAfterISOString
+  if (createdAfter) {
+    createdAfterISOString = createdAfter.toISOString()
+  }
+
+  let createdBeforeISOString
+  if (createdBefore) {
+    createdBeforeISOString = createdBefore.toISOString()
+  }
+
   const query = _.pickBy({
-    'filter[createdAt-start]' : createdAfter.toISOString(),
-    'filter[createdAt-end]'   : createdBefore.toISOString(),
+    'filter[createdAt-start]' : createdAfterISOString,
+    'filter[createdAt-end]'   : createdBeforeISOString,
     'filter[gameMode]'        : gameMode,
     'filter[playerIds]'       : playerIds,
     'filter[playerNames]'     : playerNames,
@@ -63,10 +71,8 @@ async function getMatches(apiToken: string, {
 
   return await got.get(BATTLERITE.API_PATHS.MATCHES, {
     query,
-    headers: {
-      Authorization: ['Bearer', apiToken].join(' '),
-    },
-    json: true,
+    headers : { Authorization: apiToken },
+    json    : true,
   })
 
 }

@@ -57,7 +57,7 @@ describe('getMatches', () => {
         {
           query   : {},
           headers : {
-            Authorization: ['Bearer', token].join(' '),
+            Authorization: token,
           },
           json: true,
         },
