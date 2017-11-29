@@ -10,7 +10,8 @@ import battleriteUtil from 'node-battlerite/utils/battlerite'
 function initialize(apiToken: string) {
 
   return {
-    getMatches: _.curry(battleriteUtil.getMatches)(apiToken)
+    getMatch   : _.curry(battleriteUtil.getMatch)(apiToken),
+    getMatches : _.curry(battleriteUtil.getMatches)(apiToken),
   }
 
 }

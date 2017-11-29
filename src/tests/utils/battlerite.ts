@@ -10,9 +10,40 @@ const chance = Chance()
 
 
 
-describe('matches', () => {
+describe('getMatch', () => {
 
-  it('runs', async () => {
+  it('calls the Battlerite API with the correct arguments', async () => {
+
+    const gotStub = sinon.stub(got, 'get')
+    const id      = chance.guid()
+    const token   = chance.word()
+
+    await battleriteUtil.getMatch(token, id)
+
+    gotStub.callCount.should.eql(1)
+    should(gotStub.args).eql([
+      [
+        BATTLERITE.API_PATHS.MATCHES + `/${id}`,
+        {
+          headers: {
+            Authorization: ['Bearer', token].join(' '),
+          },
+          json: true,
+        },
+      ]
+    ])
+
+    gotStub.restore()
+
+  })
+
+})
+
+
+
+describe('getMatches', () => {
+
+  it('calls the Battlerite API with the correct arguments', async () => {
 
     const gotStub = sinon.stub(got, 'get')
     const token   = chance.word()
@@ -22,9 +53,10 @@ describe('matches', () => {
     gotStub.callCount.should.eql(1)
     should(gotStub.args).eql([
       [
-        BATTLERITE.API.MATCHES,
+        BATTLERITE.API_PATHS.MATCHES,
         {
-          headers: {
+          query   : {},
+          headers : {
             Authorization: ['Bearer', token].join(' '),
           },
           json: true,

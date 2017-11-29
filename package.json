@@ -30,6 +30,9 @@
     ]
   },
   "dependencies": {
+    "@types/chance": "^0.7.35",
+    "@types/got": "^7.1.5",
+    "@types/sinon": "^4.0.0",
     "chance": "^1.0.12",
     "got": "^8.0.0",
     "lodash": "^4.17.4",

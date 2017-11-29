@@ -2,13 +2,27 @@
 # yarn lockfile v1
 
 
+"@types/chance@^0.7.35":
+  version "0.7.35"
+  resolved "https://registry.yarnpkg.com/@types/chance/-/chance-0.7.35.tgz#e76f3441b7763476c58eb7dc32f62da3d8ea547e"
+
+"@types/got@^7.1.5":
+  version "7.1.5"
+  resolved "https://registry.yarnpkg.com/@types/got/-/got-7.1.5.tgz#7cda8ddf88dcf11240f9069b79ed368ed4102393"
+  dependencies:
+    "@types/node" "*"
+
 "@types/jest@^21.1.8":
   version "21.1.8"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-21.1.8.tgz#d497213725684f1e5a37900b17a47c9c018f1a97"
 
-"@types/node@^8.0.53":
+"@types/node@*", "@types/node@^8.0.53":
   version "8.0.53"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.53.tgz#396b35af826fa66aad472c8cb7b8d5e277f4e6d8"
+
+"@types/sinon@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@types/sinon/-/sinon-4.0.0.tgz#9a93ffa4ee1329e85166278a5ed99f81dc4c8362"
 
 abab@^1.0.3:
   version "1.0.4"
