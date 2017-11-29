@@ -50,8 +50,8 @@ async function getMatches(apiToken: string, {
 } = {}) {
 
   const query = _.pickBy({
-    'filter[createdAt-start]' : createdAfter,
-    'filter[createdAt-end]'   : createdBefore,
+    'filter[createdAt-start]' : createdAfter.toISOString(),
+    'filter[createdAt-end]'   : createdBefore.toISOString(),
     'filter[gameMode]'        : gameMode,
     'filter[playerIds]'       : playerIds,
     'filter[playerNames]'     : playerNames,
