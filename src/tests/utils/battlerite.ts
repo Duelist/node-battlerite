@@ -25,10 +25,8 @@ describe('getMatch', () => {
       [
         BATTLERITE.API_PATHS.MATCHES + `/${id}`,
         {
-          headers: {
-            Authorization: ['Bearer', token].join(' '),
-          },
-          json: true,
+          headers : { Authorization: token },
+          json    : true,
         },
       ]
     ])
@@ -56,10 +54,8 @@ describe('getMatches', () => {
         BATTLERITE.API_PATHS.MATCHES,
         {
           query   : {},
-          headers : {
-            Authorization: token,
-          },
-          json: true,
+          headers : { Authorization: token },
+          json    : true,
         },
       ]
     ])
